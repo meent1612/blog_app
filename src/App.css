@@ -1,38 +1,317 @@
-.App {
+/* Add to App.css */
+.post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.post-link:hover {
+  text-decoration: none;
+}
+
+.post-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.post-not-found {
   text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.post-content {
+  white-space: pre-line;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Modern Color Palette */
+:root {
+  --primary: #4361ee;
+  --secondary: #3f37c9;
+  --accent: #4895ef;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --success: #4cc9f0;
+  --danger: #f72585;
+  --warning: #f8961e;
+  --info: #7209b7;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Base Styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+  background-color: #fafafa;
+}
+
+/* App Layout */
+.app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.app-header {
+  background-color: white;
+  color: var(--dark);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.app-footer {
+  background-color: white;
+  color: var(--dark);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+/* Post Styles */
+.post {
+  background: white;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-author-header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.post-author-avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.author-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.author-link:hover {
+  color: var(--primary);
+}
+
+.post-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.post-title {
+  margin: 0 0 1rem;
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.post-content {
+  margin-bottom: 1.5rem;
+  color: #495057;
+  line-height: 1.7;
+}
+
+.post-reactions {
+  display: flex;
+  gap: 8px;
+  padding: 0.5rem 0;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+/* Comment Styles */
+.comment {
+  background: white;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.comment-date {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.comment-content {
+  margin-bottom: 1rem;
+  color: #495057;
+}
+
+.comment-reactions {
+  display: flex;
+  gap: 8px;
+}
+
+.reply-box {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #dee2e6;
+}
+
+.reply-box textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.reply-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Comment Form */
+.comment-form {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  margin-top: 1.5rem;
+}
+
+.comment-form-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: #6c757d;
+}
+
+.comment-form-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.comment-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+/* Reaction Button Styles */
+.reaction-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.reaction-button:hover {
+  background: #f1f3f5;
+}
+
+.reaction-button.active {
+  color: var(--primary);
+  background: #e9ecef;
+}
+
+.reaction-button .count {
+  font-size: 0.8rem;
+}
+
+/* Specific reaction colors */
+.reaction-button.like.active {
+  color: #1877f2;
+  background: #e7f3ff;
+}
+
+.reaction-button.love.active {
+  color: #f33e58;
+  background: #ffebee;
+}
+
+.reaction-button.angry.active {
+  color: #f7b928;
+  background: #fff8e1;
+}
+
+.reaction-button.sad.active {
+  color: #f7b928;
+  background: #fff8e1;
+}
+
+.reaction-button.dislike.active {
+  color: #65676b;
+  background: #f0f2f5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-main {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .post {
+    padding: 1rem;
   }
 }
