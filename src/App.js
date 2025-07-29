@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PostList from './components/PostList';
 import AuthorProfile from './components/AuthorProfile';
 import Pagination from './components/Pagination';
@@ -27,7 +27,10 @@ function App() {
     <Router>
       <div className="app">
         <header className="app-header">
-          <h1>React Blog App</h1>
+          {/* Wrap the title with Link */}
+          <Link to="/" className="app-title-link">
+            <h1>React Blog App</h1>
+          </Link>
         </header>
 
         <main className="app-main">
@@ -52,7 +55,7 @@ function App() {
                 </>
               }
             />
-            
+
             <Route path="/author/:id" element={<AuthorProfile />} />
             <Route path="/post/:id" element={<PostDetail />} />
           </Routes>
